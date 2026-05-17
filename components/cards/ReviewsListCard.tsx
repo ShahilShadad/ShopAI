@@ -56,8 +56,8 @@ const ReviewsListCard = ({reviews}: CardProps) => {
                 <tbody>
                 {fiveReviewsShownNow.map((review, index)=>(
                 <tr key={index} className="border-b border-gray-100 py-3">
-                    <td className="p-4 truncate max-w-[200px]">{review.content}</td>
-                    <td className="p-4 truncate max-w-[150px]">{review.productName}</td>
+                    <td className="p-4 truncate max-w-[100px] text-sm lg:text-base">{review.content}</td>
+                    <td className="p-4 truncate max-w-[100px] text-sm lg:text-base">{review.productName}</td>
                     <td className="p-4 hidden xl:table-cell">{review.sentiment}</td>
                     <td className="p-4 hidden xl:table-cell">
                         <div className="flex gap-1">
