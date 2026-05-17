@@ -89,33 +89,33 @@ export async function GET() {
 
     
     let actualTotalSales = 0
-    actualSales.forEach((sale) => {
+    actualSales.forEach((sale:any) => {
         actualTotalSales += sale.quantity
     })
 
     let pastTotalSales = 0
-    pastSales.forEach((sale) => {
+    pastSales.forEach((sale:any) => {
         pastTotalSales += sale.quantity
     })
 
     let actualIncome = 0
-    actualSales.forEach((sale)=>{
+    actualSales.forEach((sale:any)=>{
         actualIncome += Number(sale.totalSelled)
     })
 
 
     let pastIncome = 0
-    pastSales.forEach((sale)=>{
+    pastSales.forEach((sale:any)=>{
         pastIncome += Number(sale.totalSelled)
     })
     
     let actualReviewsAnalised = 0
-    actualReviews.forEach((review)=>{
+    actualReviews.forEach((review:any)=>{
         actualReviewsAnalised++
     })
 
     let pastReviewsAnalised = 0
-    pastReviews.forEach((review)=>{
+    pastReviews.forEach((review:any)=>{
         pastReviewsAnalised++
     })    
 
@@ -162,13 +162,13 @@ export async function GET() {
     })
 
     let totalPostsCounter = 0
-    totalPosts.forEach((post)=>{
+    totalPosts.forEach((post:any)=>{
         totalPostsCounter++
     })
 
     let actualTotalSocialMediaStats = 0
 
-    actualPosts.forEach((element) => {
+    actualPosts.forEach((element:any) => {
         actualTotalSocialMediaStats += (
             element.likes +
             element.totalComments +
@@ -179,7 +179,7 @@ export async function GET() {
 
     let pastTotalSocialMediaStats = 0
 
-    pastPosts.forEach((element) => {
+    pastPosts.forEach((element:any) => {
         pastTotalSocialMediaStats += (
             element.likes +
             element.totalComments +
@@ -195,7 +195,7 @@ export async function GET() {
     })
 
     let followers = 0
-    socialMedia.forEach((element)=>{
+    socialMedia.forEach((element:any)=>{
         followers += element.followers
     })
 
@@ -258,11 +258,11 @@ export async function GET() {
         ]
 
         const higestSelledProducts:any[] = []
-        totalProducts.forEach((product)=>{
+        totalProducts.forEach((product:any)=>{
             //Precio productos vendidos totales
 
             let thingsInhigestSelledProducts = higestSelledProducts.find(
-                (item) => item.product === product.name
+                (item:any) => item.product === product.name
             )
 
             if(!thingsInhigestSelledProducts){
@@ -275,7 +275,7 @@ export async function GET() {
             }
 
             //ProductosVendidos por Mes
-            product.sales.forEach(sale => {
+            product.sales.forEach((sale:any) => {
                 const saleMonth = months[sale.createdAt.getMonth()]
                 let thingsInSaleArray = saleStatsArray.find((item) => item.month === saleMonth)
                 if(!thingsInSaleArray){
@@ -290,7 +290,7 @@ export async function GET() {
                 thingsInhigestSelledProducts.totalSelled += Number(sale.totalSelled)
             }); 
 
-            product.reviews.forEach((review)=>{
+            product.reviews.forEach((review:any)=>{
                 const reviewMonth = months[review.createdAt.getMonth()]
                 let thingsInReviewArray = reviewStatsArray.find((item) => item.month === reviewMonth)
 
@@ -304,7 +304,7 @@ export async function GET() {
                 thingsInReviewArray.totalReviews++
 
             })
-            higestSelledProducts.forEach((product) => {
+            higestSelledProducts.forEach((product:any) => {
                 product.totalSelled = Math.round(product.totalSelled)
             })
         })
@@ -315,7 +315,7 @@ export async function GET() {
 
     const graphStats = await getStatsFotSalesGraph()
 
-    graphStats.higestSelledProducts.sort((a,b) => b.totalSelled - a.totalSelled)
+    graphStats.higestSelledProducts.sort((a:any,b:any) => b.totalSelled - a.totalSelled)
 
     const top3Products = graphStats.higestSelledProducts.slice(0,3)
 
