@@ -121,7 +121,7 @@ export async function GET ()  {
     let refund = 0
     let other = 0
     
-    totalReviews.forEach(totalReview => {
+    totalReviews.forEach((totalReview:any) => {
         totalReview.analisis?.themes?.forEach((theme:string) => {
             if(theme === "delivery"){
                     delivery++
