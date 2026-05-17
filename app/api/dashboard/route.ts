@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers"
+import type { Sale, Review, Post, SocialMediaAccount, Product } from "@prisma/client"
 
 export async function GET() {
     try{
@@ -89,33 +89,33 @@ export async function GET() {
 
     
     let actualTotalSales = 0
-    actualSales.forEach((sale:any) => {
+    actualSales.forEach((sale) => {
         actualTotalSales += sale.quantity
     })
 
     let pastTotalSales = 0
-    pastSales.forEach((sale:any) => {
+    pastSales.forEach((sale) => {
         pastTotalSales += sale.quantity
     })
 
     let actualIncome = 0
-    actualSales.forEach((sale:any)=>{
+    actualSales.forEach((sale)=>{
         actualIncome += Number(sale.totalSelled)
     })
 
 
     let pastIncome = 0
-    pastSales.forEach((sale:any)=>{
+    pastSales.forEach((sale)=>{
         pastIncome += Number(sale.totalSelled)
     })
     
     let actualReviewsAnalised = 0
-    actualReviews.forEach((review:any)=>{
+    actualReviews.forEach((review)=>{
         actualReviewsAnalised++
     })
 
     let pastReviewsAnalised = 0
-    pastReviews.forEach((review:any)=>{
+    pastReviews.forEach((review)=>{
         pastReviewsAnalised++
     })    
 
@@ -162,13 +162,13 @@ export async function GET() {
     })
 
     let totalPostsCounter = 0
-    totalPosts.forEach((post:any)=>{
+    totalPosts.forEach((post)=>{
         totalPostsCounter++
     })
 
     let actualTotalSocialMediaStats = 0
 
-    actualPosts.forEach((element:any) => {
+    actualPosts.forEach((element) => {
         actualTotalSocialMediaStats += (
             element.likes +
             element.totalComments +
@@ -179,7 +179,7 @@ export async function GET() {
 
     let pastTotalSocialMediaStats = 0
 
-    pastPosts.forEach((element:any) => {
+    pastPosts.forEach((element) => {
         pastTotalSocialMediaStats += (
             element.likes +
             element.totalComments +
@@ -195,7 +195,7 @@ export async function GET() {
     })
 
     let followers = 0
-    socialMedia.forEach((element:any)=>{
+    socialMedia.forEach((element)=>{
         followers += element.followers
     })
 
@@ -258,11 +258,11 @@ export async function GET() {
         ]
 
         const higestSelledProducts:any[] = []
-        totalProducts.forEach((product:any)=>{
+        totalProducts.forEach((product)=>{
             //Precio productos vendidos totales
 
             let thingsInhigestSelledProducts = higestSelledProducts.find(
-                (item:any) => item.product === product.name
+                (item) => item.product === product.name
             )
 
             if(!thingsInhigestSelledProducts){
@@ -275,7 +275,7 @@ export async function GET() {
             }
 
             //ProductosVendidos por Mes
-            product.sales.forEach((sale:any) => {
+            product.sales.forEach(sale => {
                 const saleMonth = months[sale.createdAt.getMonth()]
                 let thingsInSaleArray = saleStatsArray.find((item) => item.month === saleMonth)
                 if(!thingsInSaleArray){
@@ -290,7 +290,7 @@ export async function GET() {
                 thingsInhigestSelledProducts.totalSelled += Number(sale.totalSelled)
             }); 
 
-            product.reviews.forEach((review:any)=>{
+            product.reviews.forEach((review)=>{
                 const reviewMonth = months[review.createdAt.getMonth()]
                 let thingsInReviewArray = reviewStatsArray.find((item) => item.month === reviewMonth)
 
@@ -304,7 +304,7 @@ export async function GET() {
                 thingsInReviewArray.totalReviews++
 
             })
-            higestSelledProducts.forEach((product:any) => {
+            higestSelledProducts.forEach((product) => {
                 product.totalSelled = Math.round(product.totalSelled)
             })
         })
@@ -315,7 +315,7 @@ export async function GET() {
 
     const graphStats = await getStatsFotSalesGraph()
 
-    graphStats.higestSelledProducts.sort((a:any,b:any) => b.totalSelled - a.totalSelled)
+    graphStats.higestSelledProducts.sort((a,b) => b.totalSelled - a.totalSelled)
 
     const top3Products = graphStats.higestSelledProducts.slice(0,3)
 

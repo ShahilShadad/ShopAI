@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers"
 import OpenAI from "openai"
+import type { Sale, Review, Post, SocialMediaAccount, Product } from "@prisma/client"
 
 export async function POST () {
     const openai = new OpenAI({
@@ -32,7 +33,7 @@ export async function POST () {
         }, {status: 200})
     }
 
-    const reviwesNoAnalized = searchReviews.filter((review) => {
+    const reviwesNoAnalized = searchReviews.filter((review:any) => {
         if(review.analisis == null){
             return true
         }

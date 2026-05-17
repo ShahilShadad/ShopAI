@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers"
+import type { Sale, Review, Post, SocialMediaAccount, Product } from "@prisma/client"
 
 export async function GET() {
   try{
