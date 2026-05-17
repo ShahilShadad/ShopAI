@@ -1,14 +1,13 @@
 import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers"
 import OpenAI from "openai"
-import type { Sale, Review, Post, SocialMediaAccount, Product } from "@prisma/client"
 
 export async function POST() {
     const openai = new OpenAI({
         apiKey: process.env.OPENAI_API_KEY
     })
-    const getUserId = cookies()
-    const userId = (await getUserId).get("auth")?.value
+    const getUserId = await cookies()
+    const userId = getUserId.get("auth")?.value
 
     if(!userId){
         return Response.json({
@@ -59,9 +58,9 @@ export async function POST() {
 
     let arrayOfDataForAnalisis:any[] = []
 
-    noAnalisedComments.forEach((item)=>{
+    noAnalisedComments.forEach((item:any)=>{
 
-        let thingsInArrayOfDataForAnalisis = arrayOfDataForAnalisis.find((data)=> data.postId === item.postId)
+        let thingsInArrayOfDataForAnalisis = arrayOfDataForAnalisis.find((data:any)=> data.postId === item.postId)
 
         if(!thingsInArrayOfDataForAnalisis){
             arrayOfDataForAnalisis.push({

@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers"
-import type { Sale, Review, Post, SocialMediaAccount, Product } from "@prisma/client"
+
 
 export async function GET ()  {
     let getUserId = await cookies()
@@ -139,7 +139,7 @@ export async function GET ()  {
         })
     });
 
-    const reviewsTable = totalReviews.map((review) => ({
+    const reviewsTable = totalReviews.map((review:any) => ({
         date: review.createdAt,
         sentiment: review.analisis?.sentiment,
         rating: review.rating,
@@ -169,7 +169,7 @@ export async function GET ()  {
         
         let statsArray:any[] = []
 
-        totalReviewsForGraph.forEach((review) => {
+        totalReviewsForGraph.forEach((review:any) => {
     
             const months = [
                 "Enero",
@@ -188,7 +188,7 @@ export async function GET ()  {
 
             const month = months[review.createdAt.getMonth()]
 
-            let thingsInArray = statsArray.find((item) => item.month === month)
+            let thingsInArray = statsArray.find((item:any) => item.month === month)
             
             if(!thingsInArray){
                 thingsInArray = {
@@ -226,7 +226,7 @@ export async function GET ()  {
         5: 0
     }
 
-    reviews.forEach((review) => {
+    reviews.forEach((review:any) => {
         if(review.rating >= 1 && review.rating <= 5){
             stars[review.rating]++
         }

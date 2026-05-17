@@ -1,6 +1,5 @@
 import { prisma } from "@/lib/prisma";
 import { cookies } from "next/headers"
-import type { Sale, Review, Post, SocialMediaAccount, Product } from "@prisma/client"
 
 export async function GET() {
   try{
@@ -125,8 +124,8 @@ export async function GET() {
     const impressionPercentage = impressionsLast60Days === 0 ? 0 : Math.round(((impressionsLast30Days - impressionsLast60Days) / impressionsLast60Days) * 100)
 
     let arrayFollowers:any[] = []
-    socialMediaData.forEach((socialAcc)=>{
-      let thingInArrayFollowers = arrayFollowers.find((item)=>(socialAcc.platform === item.platform))
+    socialMediaData.forEach((socialAcc:any)=>{
+      let thingInArrayFollowers = arrayFollowers.find((item:any)=>(socialAcc.platform === item.platform))
       
         if(!thingInArrayFollowers){
             arrayFollowers.push({
@@ -155,8 +154,8 @@ export async function GET() {
       }
     })
 
-    const posts = socialMediaData.flatMap((acc)=>{
-      return acc.posts.map((post)=>{
+    const posts = socialMediaData.flatMap((acc:any)=>{
+      return acc.posts.map((post:any)=>{
         let interactions = post.likes + post.comments.length + post.shares
         const engagement = post.impressions === 0 ? 0 : Math.round((interactions / post.impressions) * 100)
 
@@ -182,10 +181,10 @@ export async function GET() {
     let graph:any[] = []
 
     const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-    socialMediaData.forEach((socialAcc) => {
-      socialAcc.posts.forEach((post)=>{
+    socialMediaData.forEach((socialAcc:any) => {
+      socialAcc.posts.forEach((post:any)=>{
         const month = months[new Date(post.createdAt).getMonth()]
-        let thingsInGraph = graph.find((data)=> data.month === month)
+        let thingsInGraph = graph.find((data:any)=> data.month === month)
 
         if(!thingsInGraph){
           thingsInGraph = {

@@ -32,11 +32,11 @@ export async function GET() {
 
    
 
-    const products = statsDataBase.map((product)=>{
+    const products = statsDataBase.map((product:any)=>{
       let totalSales = 0
       let quantitySold = 0
 
-      product.sales.forEach((sale)=>{
+      product.sales.forEach((sale:any)=>{
         totalSales += sale.totalSelled
         quantitySold += sale.quantity
       })
@@ -75,8 +75,8 @@ export async function GET() {
 
     let totalSales = 0
     let totalIncome = 0
-    statsDataBase.forEach((product)=>{
-      product.sales.forEach(element => {
+    statsDataBase.forEach((product:any)=>{
+      product.sales.forEach((element:any) => {
         totalSales += element.quantity
         totalIncome += element.totalSelled
       });
@@ -122,11 +122,11 @@ export async function GET() {
     let actualSales = 0
 
     const channels:any[] = []
-    actualDataBaseStats.forEach((sale)=>{
+    actualDataBaseStats.forEach((sale:any)=>{
       actualIncome += sale.totalSelled
       actualSales += sale.quantity
 
-      let findChannel = channels.find((item) => item.channel === sale.channel)
+      let findChannel = channels.find((item:any) => item.channel === sale.channel)
 
       if(findChannel){
         findChannel.channelSells += sale.quantity
@@ -138,7 +138,7 @@ export async function GET() {
     let pastIncome = 0
     let pastSales = 0
 
-    pastDataBaseStats.forEach((sale)=>{
+    pastDataBaseStats.forEach((sale:any)=>{
       pastIncome += sale.totalSelled
       pastSales += sale.quantity
     })
@@ -176,11 +176,11 @@ export async function GET() {
 
       let saleStatsArray:any[] = []
     
-      statsDataBase.forEach((sale)=>{
+      statsDataBase.forEach((sale:any)=>{
         const monthIndex = sale.createdAt.getMonth()
         const monthName = months[monthIndex]
 
-        const searchIfMonthInArray = saleStatsArray.find((item)=> item.month === monthName)
+        const searchIfMonthInArray = saleStatsArray.find((item:any)=> item.month === monthName)
 
         if(searchIfMonthInArray){
           searchIfMonthInArray.sales += sale.quantity
@@ -195,7 +195,7 @@ export async function GET() {
         }
       })
 
-      saleStatsArray = saleStatsArray.map((item) => {
+      saleStatsArray = saleStatsArray.map((item:any) => {
         return {
           ...item,
           income: Number(item.income.toFixed(2))
