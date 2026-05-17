@@ -35,18 +35,21 @@ const VsReviewsGraph = ({arrayStats}:CardProps) => {
                 stroke="#4caf50" 
                 type={"monotone"}
                 strokeWidth={3}
+                dot={false}
                 />
                 <Line 
                 dataKey="neutral" 
                 stroke="#ff9800"
                 type={"monotone"}
                 strokeWidth={3} 
+                dot={false}
                 />
                 <Line 
                 dataKey="negative" 
                 stroke="#f44336"
                 type={"monotone"}
                 strokeWidth={3} 
+                dot={false}
                 />
                 <Tooltip />
             </LineChart>

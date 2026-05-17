@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import FakeReviewGraph from "@/components/authMockCards/Graphic"
 
 const Login = () => {
 
@@ -52,7 +53,7 @@ const Login = () => {
     return (
         <>
             <div className="flex flex-col gap-5 text-black bg-white min-h-screen px-4 lg:bg-gray-200 lg:flex lg:items-center lg:justify-center lg:p-5">
-                <div className="flex flex-col text-black bg-white w-full lg:max-w-6xl lg:rounded-2xl lg:flex lg:flex-row lg:p-4 lg:gap-18">
+                <div className="flex flex-col text-black bg-white w-full lg:max-w-6xl lg:min-h-[700px] lg:rounded-2xl lg:flex lg:flex-row lg:p-4 lg:gap-18">
                     <div className="flex flex-col gap-5 w-full lg:w-43/100 p-4 lg:p-10">
                         <div className="flex flex-col">
                             <Image src="/logo-black-shopai.svg" alt="Logo de ShopAI" width={100} height={20}/>
@@ -103,13 +104,15 @@ const Login = () => {
                         <button type="button" className="flex justify-center items-center h-12 border border-gray-300 mt-1 w-full rounded-xl gap-3">
                             <Image src="/logo-google.png" alt= "Logo Google" width={21} height={21} />
                             <span>Sign in with Google</span>
-                        </button> */}
+                        </button>  */}
 
                         
                         <p className="text-gray-500 text-sm flex justify-center gap-2">Aún no tienes cuenta? <Link href="/signup" className="text-black font-semibold">Registrate</Link> </p>
                     </div>
 
-                    <div className="hidden lg:block lg:w-1/2 lg:bg-purple-300 lg:rounded-2xl"></div>
+                    <div className="hidden lg:block lg:w-1/2 lg:rounded-2xl lg:bg-gradient-to-b lg:from-gray-900 lg:via-indigo-950 lg:to-indigo-900 border border-white/10 shadow-2xl">
+                        <FakeReviewGraph />
+                    </div>
                 </div>
             </div>
         </>

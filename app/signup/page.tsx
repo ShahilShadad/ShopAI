@@ -1,8 +1,9 @@
 'use client'
 import Image from "next/image";
 import Link from 'next/link'
-import { use, useState } from "react";
+import { useState } from "react";
 import { useRouter } from 'next/navigation'
+import FakeReviewGraph from "@/components/authMockCards/Graphic";
 
 const Signup = () => {
 
@@ -48,7 +49,7 @@ const Signup = () => {
     return (
         <>
             <div className="flex flex-col gap-5 text-black bg-white min-h-screen px-4 lg:bg-gray-200 lg:flex lg:items-center lg:justify-center lg:p-5">
-                <div className="flex flex-col text-black bg-white w-full lg:max-w-6xl lg:rounded-2xl lg:flex lg:flex-row lg:p-4 lg:gap-18">
+                <div className="flex flex-col text-black bg-white w-full lg:max-w-6xl lg:rounded-2xl lg:min-h-[700px] lg:flex lg:flex-row lg:p-4 lg:gap-18">
                     <div className="flex flex-col gap-5 w-full lg:w-43/100 p-4 lg:p-10">
                         <div className="flex flex-col">
                             <Image src="/logo-black-shopai.svg" alt="Logo de ShopAI" width={100} height={20}/>
@@ -111,7 +112,9 @@ const Signup = () => {
                         </button> */}
                     </div>
 
-                    <div className="hidden lg:block lg:w-1/2 lg:bg-purple-300 lg:rounded-2xl"></div>
+                    <div className="hidden lg:block lg:w-1/2 lg:rounded-2xl lg:bg-gradient-to-b lg:from-gray-900 lg:via-indigo-950 lg:to-indigo-900 border border-white/10 shadow-2xl">
+                        <FakeReviewGraph />
+                    </div>
                 </div>
             </div>
         </>

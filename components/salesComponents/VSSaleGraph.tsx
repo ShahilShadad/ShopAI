@@ -43,6 +43,7 @@ const VSSaleGraph = ({salesGraph}:CardProps) => {
                 stroke="#4caf50" 
                 type={"monotone"}
                 strokeWidth={3}
+                dot={false}
                 />
                 <Line 
                 yAxisId="right" 
@@ -50,6 +51,7 @@ const VSSaleGraph = ({salesGraph}:CardProps) => {
                 stroke="#2898c4" 
                 type={"monotone"}
                 strokeWidth={3}
+                dot={false}
                 />
                 <Tooltip
                     contentStyle={{
