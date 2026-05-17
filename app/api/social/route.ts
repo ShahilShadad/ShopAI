@@ -175,7 +175,7 @@ export async function GET() {
     })
 
     const best15Posts = posts
-    .sort((a, b) => b.engagement - a.engagement)
+    .sort((a:any, b:any) => b.engagement - a.engagement)
     .slice(0, 15)
 
     let graph:any[] = []
