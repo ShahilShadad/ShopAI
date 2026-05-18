@@ -24,24 +24,24 @@ const TopPostCard = ({top, img, alt, title, platform, date, likes, comms, impres
             </div>
             <div className="flex flex-col justify-center gap-2">
                 <div>
-                    <h1 className="font-bold">{title}</h1>
+                    <h1 className="font-bold text-sm lg:text-base">{title}</h1>
                 </div>
-                <div className="flex gap-5">
-                    <p>{platform}</p>
-                    <p>{date}</p>
+                <div className="flex gap-5 items-center">
+                    <p className="text-sm lg:text-base">{platform}</p>
+                    <p className="text-sm lg:text-base">{date}</p>
                 </div>
                 <div className="flex gap-3">
-                    <div className="flex gap-1">
-                        <Heart className="w-5 h-5 "/>
-                        <p>{likes}</p>
+                    <div className="flex gap-1 items-center">
+                        <Heart className="w-4 h-4 lg:w-5 lg:h-5"/>
+                        <p className="text-sm lg:text-base">{likes}</p>
                     </div>
-                    <div className="flex gap-1">
-                        <MessageCircle  className="w-5 h-5 "/>
-                        <p>{comms}</p>
+                    <div className="flex gap-1 items-center">
+                        <MessageCircle  className="w-4 h-4 lg:w-5 lg:h-5"/>
+                        <p className="text-sm lg:text-base">{comms}</p>
                     </div>
-                    <div className="flex gap-1">
-                        <Eye className="w-5 h-5"/>
-                        <p>{impressions}</p>
+                    <div className="flex gap-1 items-center">
+                        <Eye className="w-4 h-4 lg:w-5 lg:h-5"/>
+                        <p className="text-sm lg:text-base">{impressions}</p>
                     </div>
                     
                 </div>

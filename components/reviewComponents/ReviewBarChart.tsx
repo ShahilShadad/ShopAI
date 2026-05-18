@@ -32,6 +32,7 @@ const ReviewBarChart = ({delivery,quality, price,product,refund,other}:CardProps
             type="category"
             axisLine={false}
             tickLine={false}
+            tick={{ fontSize: window.innerWidth < 640 ? 10 : 15 }}
         />
         <Tooltip />
         <Bar

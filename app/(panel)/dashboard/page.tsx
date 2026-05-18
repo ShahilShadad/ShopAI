@@ -112,7 +112,7 @@ const Dashboard = () => {
                     title="Ventas"
                     price={stats?.kpis.totalSales ?? 0}
                     percentaje={stats?.percentages.sales ?? 0}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                 />
                 <KpiCards
                     bgColorClassName="bg-[rgb(234,250,239)]"  
@@ -122,7 +122,7 @@ const Dashboard = () => {
                     title="Ingresos"
                     price={stats?.kpis.income ?? 0}
                     percentaje={stats?.percentages.income ?? 0}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                     symbol="€"
                 />
                 <KpiCards
@@ -130,10 +130,10 @@ const Dashboard = () => {
                     icon={UserIcon}
                     color="text-[#fe7c16]"
                     alt="Reviews Analizadas"
-                    title="Reviews Analizadas"
+                    title="Reviews"
                     price={stats?.kpis.reviewsAnalised ?? 0}
                     percentaje={stats?.percentages.reviewsAnalised ?? 0}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                 />
                 <KpiCards 
                     bgColorClassName="bg-[rgb(234,243,254)]"
@@ -143,7 +143,7 @@ const Dashboard = () => {
                     title="Engagement"
                     price={stats?.kpis.engagement ?? 0}
                     percentaje={stats?.percentages.engagement ?? 0}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                     symbol="%"
                 />
             </div>

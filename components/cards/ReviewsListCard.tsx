@@ -45,12 +45,12 @@ const ReviewsListCard = ({reviews}: CardProps) => {
             <table className="w-full text-black">
                 <thead>
                     <tr className="border-b border-gray-100 py-3">
-                        <th className="text-left p-4 xl:text-base text-sm">Reseñas</th>
-                        <th className="text-left p-4 xl:text-base text-sm">Producto</th>
+                        <th className="text-left p-4 xl:text-base text-sm truncate max-w-[100px]">Reseñas</th>
+                        <th className="text-left p-4 xl:text-base text-sm truncate max-w-[100px]">Producto</th>
                         <th className="text-left p-4 hidden xl:table-cell xl:text-base">Sentimiento</th>
                         <th className="text-left p-4 hidden xl:table-cell xl:text-base">Estrellas</th>
                         <th className="text-left p-4 hidden xl:table-cell xl:text-base">Fecha</th>
-                        <th className="text-left p-4 xl:text-base text-sm">Más</th>
+                        <th className="text-left p-4 xl:text-base text-sm truncate max-w-[100px]">Más</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,8 +76,8 @@ const ReviewsListCard = ({reviews}: CardProps) => {
                             setFull(true) 
                             setReviewSelected(review)
                         }} 
-                        className="flex justify-center items-center w-9 h-7 shadow rounded-lg cursor-pointer">
-                            <Maximize2 className="w-4 h-4 text-[#411EF5]" />
+                        className="flex justify-center items-center w-6 w-4 lg:w-9 lg:h-7 shadow rounded-lg cursor-pointer">
+                            <Maximize2 className="w-3 w-3 lg:w-4 lg:h-4 text-[#411EF5] cursor-pointer" />
                         </div>
                     </td>
                 </tr>
@@ -127,36 +127,36 @@ const ReviewsListCard = ({reviews}: CardProps) => {
                                 <div className="flex flex-col lg:flex-row lg:flex lg:flex-col lg:gap-10">
                                     <div className="lg:flex lg:flex-col gap-5">
                                         <div className="flex flex-col">
-                                            <span className="flex items-center gap-2">
-                                                <aside><Box size={20}/></aside>
-                                                <h1>Producto</h1>
+                                            <span className="flex items-center gap-2 items-center">
+                                                <aside><Box className="w-4 h-4 md:w-5 md:h-5"/></aside>
+                                                <h1 className="text-sm md:text-base">Producto</h1>
                                             </span>
-                                            <span className="px-7 font-bold">{reviewSelected.productName}</span>
+                                            <span className="px-7 font-bold text-sm md:base">{reviewSelected.productName}</span>
                                         </div>
                                         <div className="flex flex-col">
                                             <span className="flex items-center gap-2">
-                                                <aside><Tag size={20}/></aside>
-                                                <h1>Categoria</h1>
+                                                <aside><Tag className="w-4 h-4 md:w-5 md:h-5 items-center"/></aside>
+                                                <h1 className="text-sm md:text-base">Categoria</h1>
                                             </span>
-                                            <span className="px-7 font-bold">{reviewSelected.productCategory}</span>
+                                            <span className="px-7 font-bold text-sm md:base">{reviewSelected.productCategory}</span>
                                         </div>
                                     </div>
                                     <div className="lg:flex lg:flex-col gap-5">
                                         <div className="flex flex-col">
-                                            <span className="flex items-center gap-2">
-                                                <aside><CalendarDays size={20}/></aside>
-                                                <h1>Fecha</h1>
+                                            <span className="flex items-center gap-2 items-center">
+                                                <aside><CalendarDays className="w-4 h-4 md:w-5 md:h-5"/></aside>
+                                                <h1 className="text-sm md:text-base">Fecha</h1>
                                             </span>
-                                            <span className="px-7 font-bold">{new Date(reviewSelected.date).toLocaleDateString("en-GB", {day: "numeric",month: "short",year: "numeric"})}</span>
+                                            <span className="px-7 font-bold text-sm md:base">{new Date(reviewSelected.date).toLocaleDateString("en-GB", {day: "numeric",month: "short",year: "numeric"})}</span>
                                         </div>
                                         <div className="flex flex-col">
-                                            <span className="flex items-center gap-2">
-                                                <aside><Smile  size={20}/></aside>
-                                                <h1>Sentimiento</h1>
+                                            <span className="flex items-center gap-2 items-center">
+                                                <aside><Smile className="w-4 h-4 md:w-5 md:h-5"/></aside>
+                                                <h1 className="text-sm md:text-base">Sentimiento</h1>
                                             </span>
                                             <span className="flex flex-col px-7 py-1"> 
                                                 <p 
-                                                className={`flex items-center justify-center font-bold rounded-lg max-w-[100px] ${reviewSelected.sentiment === "positive" ? "bg-green-100 text-green-700" : reviewSelected.sentiment === "negative" ? "bg-red-100 text-red-700" : "bg-gray-100 text-gray-700"} `}
+                                                className={`flex items-center justify-center font-bold rounded-lg max-w-[100px] text-sm md:base ${reviewSelected.sentiment === "positive" ? "bg-green-100 text-green-700" : reviewSelected.sentiment === "negative" ? "bg-red-100 text-red-700" : "bg-gray-100 text-gray-700"} `}
                                                 >
                                                 {reviewSelected.sentiment} 
                                                 </p>
@@ -167,59 +167,59 @@ const ReviewsListCard = ({reviews}: CardProps) => {
                             </div>
                             <div className="flex flex-col p-3 gap-2">
                                 <div className="flex gap-2">
-                                    <aside><Star className="w-5 h-5"/> </aside>
-                                    <h1>Calificación</h1>
+                                    <aside><Star className="w-4 h-4 md:w-5 md:h-5 items-center"/> </aside>
+                                    <h1 className="md:text-base text-sm">Calificación</h1>
                                 </div>
                                 <div className="rounded-lg gap-2 border border-gray-100 p-3 flex items-center justify-around">
                                     <aside className="flex">
                                         {[1,2,3,4,5].map((star) => (
                                             <Star
                                                 key={star}
-                                                className={`w-7 h-7 ${star <= reviewSelected.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}`}
+                                                className={`w-5 h-5 md:w-7 md:h-7 ${star <= reviewSelected.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}`}
                                             />
                                         ))}
                                     </aside>
-                                    <aside className="font-bold text-lg">{reviewSelected.rating} / 5</aside>
+                                    <aside className="font-bold text-base md:text-lg">{reviewSelected.rating} / 5</aside>
                                 </div>
                             </div>
                         </div>
                         <div className="flex flex-col">
                             <div className="flex flex-col p-3 gap-2">
-                                <div className="flex gap-2">
-                                    <aside><MessagesSquare className="w-5 h-5"/> </aside>
-                                    <h1>Contenido reseña</h1>
+                                <div className="flex gap-2 items-center">
+                                    <aside><MessagesSquare className="w-4 h-4 md:w-5 md:h-5"/> </aside>
+                                    <h1 className="md:text-base text-sm">Contenido reseña</h1>
                                 </div>
                                 <div className="rounded-lg gap-2 bg-gray-100 p-3">
-                                    <p>{reviewSelected.content}</p>
+                                    <p className="md:text-base text-sm">{reviewSelected.content}</p>
                                 </div>
                             </div>
                             <div className="flex flex-col p-3 gap-2">
-                                <div className="flex gap-2">
-                                    <aside><ScanText  className="w-5 h-5"/> </aside>
-                                    <h1>Resumen IA</h1>
+                                <div className="flex gap-2 items-center">
+                                    <aside><ScanText  className="w-4 h-4 md:w-5 md:h-5"/> </aside>
+                                    <h1 className="md:text-base text-sm">Resumen IA</h1>
                                 </div>
                                 <div className="rounded-lg gap-2 bg-[#f4f1fd] p-3">
-                                    <p>{reviewSelected.summary}</p>
+                                    <p className="md:text-base text-sm">{reviewSelected.summary}</p>
                                 </div>
                             </div>
                             <div className="flex flex-col p-3 gap-2">
-                                <div className="flex gap-2">
-                                    <aside><Tags className="w-5 h-5"/> </aside>
-                                    <h1>Temas identificados</h1>
+                                <div className="flex gap-2 items-center">
+                                    <aside><Tags className="w-4 h-4 md:w-5 md:h-5"/> </aside>
+                                    <h1 className="md:text-base text-sm">Temas identificados</h1>
                                 </div>
                                 <div className="flex gap-2 flex-wrap">
                                     {reviewSelected.themes?.map((theme, key)=>(
-                                        <p key={key} className="inline-flex items-center px-2 py-0.5 xl:px-2 rounded-lg bg-[#efebfd] text-[#7b68e6]">{theme}</p>
+                                        <p key={key} className="md:text-base text-sm inline-flex items-center px-2 py-0.5 xl:px-2 rounded-lg bg-[#efebfd] text-[#7b68e6]">{theme}</p>
                                     ))}
                                 </div>
                             </div>
                             <div className="flex flex-col p-3 gap-2">
-                                <div className="flex gap-2">
-                                    <aside><Lightbulb className="w-5 h-5"/> </aside>
-                                    <h1>Recomendación IA</h1>
+                                <div className="flex gap-2 items-center">
+                                    <aside><Lightbulb className="w-4 h-4 md:w-5 md:h-5"/> </aside>
+                                    <h1 className="md:text-base text-sm">Recomendación IA</h1>
                                 </div>
                                 <div className="rounded-lg gap-2 bg-[#f3faf6] p-3">
-                                    <p>{reviewSelected.recomendations}</p>
+                                    <p className="md:text-base text-sm">{reviewSelected.recomendations}</p>
                                 </div>
                             </div>
                         </div>

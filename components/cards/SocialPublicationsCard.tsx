@@ -54,11 +54,11 @@ const SocialPublicationCard = ({allPosts}:CardProps) => {
             <table className="w-full text-black">
                 <thead>
                     <tr className="border-b border-gray-100 py-3">
-                        <th className="text-left p-4">Publicación</th>
-                        <th className="text-left p-4 hidden xl:table-cell">Plataforma</th>
-                        <th className="text-left p-4 hidden xl:table-cell">Fecha</th>
-                        <th className="text-left p-4">Engagement</th>
-                        <th className="text-left p-4">Más</th>
+                        <th className="text-left p-4 xl:text-base text-sm">Publicación</th>
+                        <th className="text-left p-4 hidden xl:table-cell xl:text-base">Plataforma</th>
+                        <th className="text-left p-4 hidden xl:table-cell xl:text-base">Fecha</th>
+                        <th className="text-left p-4 xl:text-base text-sm">Engagement</th>
+                        <th className="text-left p-4 xl:text-base text-sm">Más</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,8 +68,8 @@ const SocialPublicationCard = ({allPosts}:CardProps) => {
                             <div className="flex items-center gap-4">
                                 <Image src={post.image} alt={post.title} width={80} height={80} className="rounded-lg hidden xl:table-cell" />
                                 <div className="min-w-0">
-                                    <h1 className="font-bold truncate max-w-[200px]">{post.title}</h1>
-                                    <p className="text-gray-500 truncate max-w-[200px]">{post.content}</p>
+                                    <h1 className="font-bold p-4 truncate max-w-[150px] md:max-w-[350px] text-sm lg:text-base">{post.title}</h1>
+                                    <p className="text-gray-500 p-4 truncate max-w-[150px] md:max-w-[350px] text-sm lg:text-base">{post.content}</p>
                                 </div>
                             </div>
                         </td>
@@ -83,15 +83,15 @@ const SocialPublicationCard = ({allPosts}:CardProps) => {
                             <p>{new Date(post.date).toLocaleDateString("en-GB", {day: "numeric", month: "short"})}</p>
                         </td>
                         <td className="p-4">
-                            <span className={`inline-flex items-center rounded-lg  px-2.5 py-1 text-sm font-semibold ${post.engagement >= 0 ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>{post.engagement}%</span>
+                            <span className={`inline-flex items-center rounded-lg  px-2.5 py-1 text-xs lg:text-base font-semibold ${post.engagement >= 0 ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>{post.engagement}%</span>
                         </td>
                         <td className="p-4">
                             <div onClick={() => {
                             setFull(true) 
                             setpostSelected(post)
                             }} 
-                            className="flex justify-center items-center w-9 h-7 shadow rounded-lg">
-                                <Maximize2 className="w-4 h-4 text-[#411EF5] cursor-pointer" />
+                            className="flex justify-center items-center w-6 w-4 md:w-9 md:h-7 shadow rounded-lg cursor-pointer">
+                                <Maximize2 className="w-3 w-3 md:w-4 md:h-4 text-[#411EF5] cursor-pointer" />
                             </div>
                         </td>
                     </tr>
@@ -127,7 +127,7 @@ const SocialPublicationCard = ({allPosts}:CardProps) => {
             <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 text-black">
                 <div className="relative bg-white w-[90%] max-w-7xl max-h-[90vh] overflow-y-auto rounded-2xl p-8 flex flex-col overflow-y-scroll no-scrollbar ">
                     <div className="flex justify-between items-center pb-4 border-b border-gray-200">
-                        <h1 className="font-bold text-lg xl:text-2xl">Detalles de publicación</h1>
+                        <h1 className="font-bold text-base sm:text-lg xl:text-2xl">Detalles de publicación</h1>
                         <button onClick={() => setFull(false)} className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition">
                             <X className="w-6 h-6 xl:w-7 xl:h-7 text-gray-600 cursor-pointer" />
                         </button>
@@ -167,7 +167,7 @@ const SocialPublicationCard = ({allPosts}:CardProps) => {
                                     <p>{postSelected.socialMedia}</p>
                                 </span>
                             </div>
-                            <div className="grid grid-cols-2 gap-9 place-items-center">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div className="w-full lg:min-w-[200px] flex flex-col gap-2 border border-gray-200 shadow rounded-xl p-4">
                                     <span className="flex items-center gap-5">
                                         <aside><Heart className="w-7 h-7 text-red-500" /></aside>

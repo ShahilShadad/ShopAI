@@ -27,14 +27,14 @@ const KpiCards = ({bgColorClassName, icon: IconComponent, color = "", alt, title
                         />
                     </div>
                     <div className="flex flex-col items-center">
-                        <h1 className="text-sm lg:text-base text-center">{title}</h1>
-                        <p className="text-lg font-bold lg:text-4xl">{price}{symbol}</p>
+                        <h1 className="text-xs md:text-sm lg:text-base text-center">{title}</h1>
+                        <p className="font-bold text-sm md:text-base lg:text-2xl text-center">{price}{symbol}</p>
                     </div>
                 </div>
                 {percentaje !== undefined && (
                 <div className="flex gap-2">
                     <div className="flex items-center justify-center lg:gap-1">
-                        {percentaje >= 0 ? (<ArrowUp className="w-3 h-3 lg:w-4 lg:h-4 text-green-500" />) : (<ArrowDown className="w-3 h-3 lg:w-4 lg:h-4 text-red-500" />)}
+                        {percentaje >= 0 ? (<ArrowUp className="w-3 h-3 lg:w-4 lg:h-4 text-green-500 hidden md:block" />) : (<ArrowDown className="w-3 h-3 lg:w-4 lg:h-4 text-red-500 hidden md:block" />)}
                         <p className="text-[9px] lg:text-base text-center break-words">
                             <span className={`mx-1 ${percentaje >= 0 ? "text-green-500" : "text-red-500"}`}>{percentaje}%</span> {equal}
                         </p>

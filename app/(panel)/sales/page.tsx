@@ -136,7 +136,7 @@ const Sales = () => {
                     title="Ticket promedio"
                     price={stats?.kpis.averageTicket ?? 0}
                     percentaje={stats?.percentages.averageTicket}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                     symbol="€"
                 />
                 <KpiCards 
@@ -147,7 +147,7 @@ const Sales = () => {
                     title="Productos vendidos"
                     price={stats?.kpis.actualSales ?? 0}
                     percentaje={stats?.percentages.productSelled ?? 0}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                 />
             </div>
             <div className="sm:mx-5 mx-2 lg:mx-5 grid lg:grid-cols-2 lg:gap-5 lg:mx-5 gap-5">

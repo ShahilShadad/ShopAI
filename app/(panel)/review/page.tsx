@@ -177,7 +177,7 @@ const Review = () => {
                     title="Reseñas positivas"
                     price={stats?.kpis.positiveReviews ?? 0}
                     percentaje= {stats?.percentaje.positiveReviewsPercentaje ?? 0}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                 />
                 <KpiCards 
                     bgColorClassName="bg-[rgb(253,234,236)]" 
@@ -187,7 +187,7 @@ const Review = () => {
                     title="Reseñas negativas"
                     price={stats?.kpis.negativeReviews ?? 0}
                     percentaje={stats?.percentaje.negativeReviewsPercentaje ?? 0}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                 />
                 <KpiCards 
                     bgColorClassName="bg-[rgb(234,243,254)]" 
@@ -197,7 +197,7 @@ const Review = () => {
                     title="Reseñas neutras"
                     price={stats?.kpis.neutralReviews ?? 0}
                     percentaje={stats?.percentaje.neutralReviewsPercentaje ?? 0}
-                    equal="vs mes anterior"
+                    equal="vs periodo anterior"
                 />
             </div>
             <div className="mx-2 sm:mx-5 grid grid-cols-1 xl:grid-cols-3 gap-5">
