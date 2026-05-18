@@ -90,8 +90,8 @@ const SocialPublicationCard = ({allPosts}:CardProps) => {
                             setFull(true) 
                             setpostSelected(post)
                             }} 
-                            className="flex justify-center items-center w-6 w-4 md:w-9 md:h-7 shadow rounded-lg cursor-pointer">
-                                <Maximize2 className="w-3 w-3 md:w-4 md:h-4 text-[#411EF5] cursor-pointer" />
+                            className="flex justify-center items-center w-6 h-5 md:w-9 md:h-7 shadow rounded-lg cursor-pointer">
+                                <Maximize2 className="w-4 h-3 text-[#411EF5] cursor-pointer" />
                             </div>
                         </td>
                     </tr>
